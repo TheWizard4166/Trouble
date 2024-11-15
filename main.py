@@ -10,10 +10,15 @@
 # Assignment:           
 # Date:         15 November 2024
 
-import pygame
+import numpy as np
+import random
+from colorama import Fore, Back, Style
+
 class player:
-    __init__(self, color):
+    def __init__(self, color):
         self.color = color
         self.score = 0
         
-        
+
+dice = random.randint(1,6)
+print(dice)
