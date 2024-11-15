@@ -10,7 +10,10 @@
 # Assignment:           
 # Date:         15 November 2024
 
-try:
-    x = 0/0
-except ZeroDivisionError:
-    print("lol, you tried to divide by zero")
+import pygame
+class player:
+    __init__(self, color):
+        self.color = color
+        self.score = 0
+        
+        
