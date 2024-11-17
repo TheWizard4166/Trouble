@@ -1,0 +1,16 @@
+def add_pawn(color):
+    '''Adds a new pawn onto the board, takes in color of the player as argument'''
+
+    yellow_pawn = " "+colorama.Fore.YELLOW +"●"+colorama.Style.RESET_ALL+" "
+    blue_pawn = " "+colorama.Fore.BLUE +"●"+colorama.Style.RESET_ALL+" "
+    green_pawn = " "+colorama.Fore.GREEN +"●"+colorama.Style.RESET_ALL+" "
+    red_pawn = " "+colorama.Fore.RED +"●"+colorama.Style.RESET_ALL+" "
+
+    if color == "yellow":
+        trouble_board[0][1] = yellow_pawn
+    elif color == "blue":
+        trouble_board[1][14] = blue_pawn
+    elif color == "green":
+        trouble_board[13][0] = green_pawn
+    elif color == "red":
+        trouble_board[14][13] = red_pawn
