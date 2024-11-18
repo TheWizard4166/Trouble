@@ -32,7 +32,11 @@ class player:
     def toggle_turn(self):
         self.is_turn = not self.is_turn
 
-import colorama
+
+#global variables
+#pawn counts on and off the board
+y_pawns_off, b_pawns_off, g_pawns_off, r_pawns_off = 4
+y_pawns_on, b_pawns_on, g_pawns_on, r_pawns_on = 0
 
 #initialize starting game board
 s = "   "
