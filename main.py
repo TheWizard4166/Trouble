@@ -21,6 +21,7 @@ import colorama
 import Trouble_functions
 
 #global variables
+player_colors = {'p1':'yellow', 'p2':'red', 'p3':'blue', 'p4':'green'}
 current_turn = "yellow"
 
 #initialize starting game board
