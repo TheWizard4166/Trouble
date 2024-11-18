@@ -28,4 +28,3 @@ def add_pawn(turn):
                     trouble_board[14][14] = trouble_board[i][16]
                     trouble_board[i][16] = s
                     break
-    next_turn()
