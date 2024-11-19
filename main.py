@@ -18,7 +18,11 @@
 import numpy as np
 import random
 import colorama 
-import Trouble_functions
+from Trouble_functions import display, add_pawn_color, check_pawns_off_board, dice_roll, menu, move_pawn, next_turn, print_instructions 
+import sys
+
+# adding Folder_2 to the system path
+sys.path.insert(0, 'Trouble_functions/')
 
 #global variables
 player_colors = {'p1':'yellow', 'p2':'red', 'p3':'blue', 'p4':'green'}
@@ -70,3 +74,4 @@ trouble_board = ([y1,s, y, s, y, s, y, s, o, s, b, s, b, s, b, s, b1],
 
 dice = random.randint(1,6)
 print(dice)
+display.print_board(trouble_board)
