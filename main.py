@@ -18,13 +18,13 @@
 import numpy as np
 import random
 import colorama 
-from Trouble_functions import display, next_turn, pawn
+from Trouble_functions import settings, display  
 import sys
 
 # adding Trouble_functions to the system path
-sys.path.insert(0, 'Trouble_functions/')
-
+#sys.path.insert(0, 'Trouble_functions/')
+settings.init()
 dice = random.randint(1,6)
 print(dice)
 display.print_board()
-help(display)
+#help(display)

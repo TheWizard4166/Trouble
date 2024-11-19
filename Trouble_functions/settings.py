@@ -1,9 +1,17 @@
+import colorama
 
+player_colors = {}
+current_turn = ""
+trouble_board = ()
 def init():
 
     #global variables
-    global player_colors = {'p1':'yellow', 'p2':'red', 'p3':'blue', 'p4':'green'}
-    global current_turn = "yellow"
+    global player_colors
+    global current_turn
+    global trouble_board
+
+    player_colors = {'p1':'yellow', 'p2':'red', 'p3':'blue', 'p4':'green'}
+    current_turn = "yellow"
 
     #initialize starting game board
     #initialize starting game board
@@ -32,7 +40,7 @@ def init():
     g4 = " "+colorama.Fore.GREEN +"●"+colorama.Style.RESET_ALL+"4"
     r4 = " "+colorama.Fore.RED +"●"+colorama.Style.RESET_ALL+"4"
                     # 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14
-    global trouble_board = ([y1,s, y, s, y, s, y, s, o, s, b, s, b, s, b, s, b1],
+    trouble_board = ([y1,s, y, s, y, s, y, s, o, s, b, s, b, s, b, s, b1],
                      [y2,y, s, s, s, s, s, s, s, s, s, s, s, s, s, b, b2],
                      [y3,s, s, y, s, s, s, s, s, s, s, s, s, b, s, s, b3],
                      [y4,y, s, s, y, s, s, s, s, s, s, s, b, s, s, b, b4],

@@ -1,11 +1,11 @@
-import settings
+from Trouble_functions import settings
 '''
     The display file for Trouble.
 '''
 
 def print_board():
     '''Prints out the current board to the console'''
-    for row in trouble_board:
+    for row in settings.trouble_board:
         for space in row:
             print(space,end="")
         print("\n",end="")
@@ -55,4 +55,3 @@ def print_instructions():
     print("Winning the Game:")
     print("  - The first player to move all four of their pegs into the Finish area wins the game.")
     
-
