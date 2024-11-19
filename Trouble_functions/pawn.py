@@ -28,3 +28,31 @@ def add_pawn(turn):
                     trouble_board[14][14] = trouble_board[i][16]
                     trouble_board[i][16] = s
                     break
+
+def pawns_off_board(turn):
+    '''Returns a bool that shows whether a player has any pawns not on the board yet'''
+    if turn == "yellow":
+        for i in range(4): #check if any pawns are off the board
+            if trouble_board[i][0] != s:
+                return(True)
+        return(False)
+    if turn == "blue":
+        for i in range(4): #check if any pawns are off the board
+            if trouble_board[i][16] != s:
+                return(True)
+        return(False)
+    if turn == "green":
+        for i in range(11,15): #check if any pawns are off the board
+            if trouble_board[i][0] != s:
+                return(True)
+        return(False)
+    if turn == "red":
+        for i in range(11,15): #check if any pawns are off the board
+            if trouble_board[i][16] != s:
+                return(True)
+        return(False)
+
+def move_pawn(spaces):
+    '''Moves a selected colored pawn the given number of spaces'''
+    pawn_to_move = input("Which pawn on the board would you like to move(1/2/3/4)?: ")
+    print(current_turn[0]+pawn_to_move)

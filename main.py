@@ -18,7 +18,7 @@
 import numpy as np
 import random
 import colorama 
-from Trouble_functions import display, add_pawn_color, check_pawns_off_board, dice_roll, menu, move_pawn, next_turn, print_instructions 
+from Trouble_functions import dice_roll, display, next_turn, pawn
 import sys
 
 # adding Folder_2 to the system path
