@@ -1,5 +1,6 @@
 import random
-
+import settings
+from display import print_board
 def dice_roll():
     print(f'It is {current_turn}\'s turn!')
     print_board()

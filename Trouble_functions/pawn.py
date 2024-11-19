@@ -1,3 +1,4 @@
+import settings
 def add_pawn(turn):
     '''Adds a new pawn onto the board, takes in color of the player as argument'''
 

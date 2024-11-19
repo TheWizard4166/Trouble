@@ -1,4 +1,9 @@
-def print_board(trouble_board):
+import settings
+'''
+    The display file for Trouble.
+'''
+
+def print_board():
     '''Prints out the current board to the console'''
     for row in trouble_board:
         for space in row:
@@ -6,6 +11,13 @@ def print_board(trouble_board):
         print("\n",end="")
 
 def main_menu():
+    '''
+        Prints out the main menu and asks for apropriate responses.
+        If the user inputs:
+            1: Starts Game
+            2: Displays option menu
+            3: Quits game
+    '''
     user_input = ""
     options = [1,2,3]
     while user_input not in options:
