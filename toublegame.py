@@ -283,18 +283,22 @@ def main_menu():
     '''
     user_input = ""
     options = [1,2,3]
-    while user_input not in options:
-        print("######  MAIN MENU  ######")
-        print("###### 1. Start    ######")
-        print("###### 2. Options  ######")
-        print("###### 3. Quit     ######")
+    while True: 
+        print(f"{'  MAIN MENU  ':#^32}")
+        print(f"{'  1. Start  ':#^32}")
+        print(f"{'  2. Instructions  ':#^32}")
+        print(f"{'  3. Quit  ':#^32}")
         user_input = input("")
         try:
             user_input = int(user_input)
         except ValueError:
             print("Input a number!")
-    if user_input == 1:
-
+        if user_input == 1:
+            start()
+        elif user_input == 2:
+            print_instructions()
+        elif user_input == 3:
+            break
 
 def print_instructions():
     print("Game Rules\n")
@@ -386,4 +390,4 @@ def start():
     #print_board()
 
 
-
+main_menu()
