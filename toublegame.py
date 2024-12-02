@@ -71,6 +71,9 @@ def pawns_on_board(turn):
     #print(pawn_count)
     return(pawn_count)
 
+def send_home():
+    pass
+
 def pawns_off_board(turn):
     '''Returns a bool that shows whether a player has any pawns not on the board yet'''
     if turn == "yellow":
