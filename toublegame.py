@@ -25,12 +25,11 @@ def next_turn():
         current_turn = (turns_dict[turns_dict[current_turn]+1])
 
 def dice_roll():
-    global current_turn
     print(f'It is {current_turn}\'s turn!')
     print_board()
     roll = random.randint(1,6)
     with open("Rolls.txt", 'a') as file:
-        file.write(str(roll))
+        file.append(roll)
     print(f'rolled: {roll}')
     while roll == 6:
         new_pawn = input("Enter a new pawn?(Y/N): ")
@@ -72,8 +71,18 @@ def pawns_on_board(turn):
     #print(pawn_count)
     return(pawn_count)
 
-def send_home():
-    pass
+def send_home(pawn):
+    variable_dict = {y1:"y1", y2:"y2", y3:"y3", y4:"y4", b1:"b1", b2:"b2", b3:"b3", b4:"b4", r1:"r1", r2:"r2", r3:"r3", r4:"r4", g1:"g1", g2:"g2", g3:"g3", g4:"g4"}
+    name = variable_dict[pawn]
+    if name[0] == "y":
+        trouble_board[int(name[1])-1][0] = pawn
+    elif name[0] == "b":
+        trouble_board[int(name[1])-1][16] = pawn
+    elif name[0] == "r":
+        trouble_board[int(name[1])+10][16] = pawn
+    else: #== "g"
+        trouble_board[int(name[1])+10][0] = pawn
+    #pass
 
 def pawns_off_board(turn):
     '''Returns a bool that shows whether a player has any pawns not on the board yet'''
@@ -199,6 +208,9 @@ def move_pawn(spaces):
                     else:
                         newcol-=2                    
                 #if space not blank send player home
+        empty_vars = [y,b,r,g,o]
+        if trouble_board[newrow][newcol] not in empty_vars:
+            send_home(trouble_board[newrow][newcol])
         trouble_board[newrow][newcol] = trouble_board[row][col]
         #if prev space was green turn open green, if red turn open red
         if col < 8:
@@ -284,22 +296,29 @@ def main_menu():
     '''
     user_input = ""
     options = [1,2,3]
-    while True: 
-        print(f"{'  MAIN MENU  ':#^32}")
-        print(f"{'  1. Start  ':#^32}")
-        print(f"{'  2. Instructions  ':#^32}")
-        print(f"{'  3. Quit  ':#^32}")
-        user_input = input("")
-        try:
-            user_input = int(user_input)
-        except ValueError:
-            print("Input a number!")
-        if user_input == 1:
-            start()
-        elif user_input == 2:
-            print_instructions()
-        elif user_input == 3:
-            break
+    print("######  MAIN MENU  ######")
+    print("###### 1. Start    ######")
+    print("###### 2. Options  ######")
+    print("###### 3. Quit     ######")
+    user_input = input("")
+    try:
+        user_input = int(user_input)
+    except ValueError:
+        print("Input a number!")
+        return main_menu()
+    if user_input > 3:
+        print("Input one of the options!")
+        return main_menu()
+    elif user_input == 3:
+        return 0
+    elif user_input == 2:
+        # return options_menu()
+        pass
+    elif user_input == 1:
+        # return start()
+        pass
+    return user_input
+
 
 def print_instructions():
     print("Game Rules\n")
@@ -373,10 +392,11 @@ trouble_board = ([y1,s, y, s, y, s, y, s, o, s, b, s, b, s, b, s, b1], #0
                  [g4,s, g, s, g, s, g, s, o, s, r, s, r, s, r, s, r4]) #14
 
 
-global current_turn
+
 #starting turn
 def start():
-    global current_turn
+    print_instructions()
+    #main_menu()
     current_turn = "yellow"
 
     for i in range(25):
@@ -390,4 +410,4 @@ def start():
     #print_board()
 
 
-main_menu()
+
