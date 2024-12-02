@@ -29,8 +29,8 @@ def dice_roll():
     print_board()
     roll = random.randint(1,6)
     with open("Rolls.txt", 'a') as file:
-        file.append(roll)
-    print(f'rolled: {roll}')
+        file.write(str(roll))
+    print(f'{current_turn} rolled: {roll}')
     while roll == 6:
         new_pawn = input("Enter a new pawn?(Y/N): ")
         if new_pawn == "Y": 
@@ -82,7 +82,6 @@ def send_home(pawn):
         trouble_board[int(name[1])+10][16] = pawn
     else: #== "g"
         trouble_board[int(name[1])+10][0] = pawn
-    #pass
 
 def pawns_off_board(turn):
     '''Returns a bool that shows whether a player has any pawns not on the board yet'''
@@ -296,10 +295,10 @@ def main_menu():
     '''
     user_input = ""
     options = [1,2,3]
-    print("######  MAIN MENU  ######")
-    print("###### 1. Start    ######")
-    print("###### 2. Options  ######")
-    print("###### 3. Quit     ######")
+    print("######      MAIN MENU        ######")
+    print("######      1. Start         ######")
+    print("######      2. Instructions  ######")
+    print("######      3. Quit          ######")
     user_input = input("")
     try:
         user_input = int(user_input)
@@ -310,14 +309,11 @@ def main_menu():
         print("Input one of the options!")
         return main_menu()
     elif user_input == 3:
-        return 0
+        return 
     elif user_input == 2:
-        # return options_menu()
-        pass
+        print_instructions()
     elif user_input == 1:
-        # return start()
-        pass
-    return user_input
+        return start()
 
 
 def print_instructions():
@@ -391,15 +387,15 @@ trouble_board = ([y1,s, y, s, y, s, y, s, o, s, b, s, b, s, b, s, b1], #0
                  [g3,g, s, s, s, s, s, s, s, s, s, s, s, s, s, r, r3], #13
                  [g4,s, g, s, g, s, g, s, o, s, r, s, r, s, r, s, r4]) #14
 
-
-
+global current_turn
 #starting turn
 def start():
+    global current_turn
     print_instructions()
     #main_menu()
     current_turn = "yellow"
 
-    for i in range(25):
+    while True:
         dice_roll()
     #add_pawn(current_turn)
     #print(current_turn)
@@ -411,3 +407,4 @@ def start():
 
 
 
+main_menu()
