@@ -290,7 +290,8 @@ def main_menu():
             user_input = int(user_input)
         except ValueError:
             print("Input a number!")
-    return user_input
+    if user_input == 1:
+
 
 def print_instructions():
     print("Game Rules\n")
@@ -366,19 +367,20 @@ trouble_board = ([y1,s, y, s, y, s, y, s, o, s, b, s, b, s, b, s, b1], #0
 
 
 #starting turn
-print_instructions()
-#main_menu()
-current_turn = "yellow"
+def start():
+    print_instructions()
+    #main_menu()
+    current_turn = "yellow"
 
-for i in range(25):
-    dice_roll()
-#add_pawn(current_turn)
-#print(current_turn)
-##add_pawn(current_turn)
+    for i in range(25):
+        dice_roll()
+    #add_pawn(current_turn)
+    #print(current_turn)
+    ##add_pawn(current_turn)
 
-#print(current_turn)
-#add_pawn(current_turn)
-#print_board()
+    #print(current_turn)
+    #add_pawn(current_turn)
+    #print_board()
 
 
 

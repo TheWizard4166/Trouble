@@ -20,17 +20,31 @@ def main_menu():
     '''
     user_input = ""
     options = [1,2,3]
-    while user_input not in options:
-        print("######  MAIN MENU  ######")
-        print("###### 1. Start    ######")
-        print("###### 2. Options  ######")
-        print("###### 3. Quit     ######")
-        user_input = input("")
-        try:
-            user_input = int(user_input)
-        except ValueError:
-            print("Input a number!")
+    print("######  MAIN MENU  ######")
+    print("###### 1. Start    ######")
+    print("###### 2. Options  ######")
+    print("###### 3. Quit     ######")
+    user_input = input("")
+    try:
+        user_input = int(user_input)
+    except ValueError:
+        print("Input a number!")
+        return main_menu()
+    if user_input > 3:
+        print("Input one of the options!")
+        return main_menu()
+    elif user_input == 3:
+        return 0
+    elif user_input == 2:
+        # return options_menu()
+        pass
+    elif user_input == 1:
+        # return start()
+        pass
     return user_input
+
+def options_menu():
+    return
 
 def print_instructions():
     print("Game Rules\n")
@@ -55,3 +69,4 @@ def print_instructions():
     print("Winning the Game:")
     print("  - The first player to move all four of their pegs into the Finish area wins the game.")
     
+main_menu()
