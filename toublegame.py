@@ -312,6 +312,7 @@ def main_menu():
         return 
     elif user_input == 2:
         print_instructions()
+        return main_menu()
     elif user_input == 1:
         return start()
 
