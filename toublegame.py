@@ -25,11 +25,12 @@ def next_turn():
         current_turn = (turns_dict[turns_dict[current_turn]+1])
 
 def dice_roll():
+    global current_turn
     print(f'It is {current_turn}\'s turn!')
     print_board()
     roll = random.randint(1,6)
     with open("Rolls.txt", 'a') as file:
-        file.append(roll)
+        file.write(str(roll))
     print(f'rolled: {roll}')
     while roll == 6:
         new_pawn = input("Enter a new pawn?(Y/N): ")
@@ -372,11 +373,10 @@ trouble_board = ([y1,s, y, s, y, s, y, s, o, s, b, s, b, s, b, s, b1], #0
                  [g4,s, g, s, g, s, g, s, o, s, r, s, r, s, r, s, r4]) #14
 
 
-
+global current_turn
 #starting turn
 def start():
-    print_instructions()
-    #main_menu()
+    global current_turn
     current_turn = "yellow"
 
     for i in range(25):
