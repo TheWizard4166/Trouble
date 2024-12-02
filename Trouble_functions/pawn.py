@@ -23,6 +23,7 @@ def add_pawn(turn):
                     trouble_board[13][1] = trouble_board[i][0]
                     trouble_board[i][0] = s
                     break
+    else:
         if trouble_board[14][14] == r: #if open space to move pawn to 
             for i in range(11,15): 
                 if trouble_board[i][16] != s:
